@@ -1,0 +1,109 @@
+@import './variables.scss';
+
+* {
+  margin: 0;
+  padding: 0;
+
+
+}
+
+
+body {
+  font-family: 'PingFang SC', 'Helvetica Neue', Helvetica, 'microsoft yahei', arial, STHeiTi,
+    sans-serif;
+    font-size: 14px;
+
+    svg { display: inline-block;}
+
+    a { color:var(--el-color-primary)}
+    a:hover { text-decoration: underline;}
+}
+
+
+
+.main-content {
+  position: relative;
+  margin-left: 200px;
+  padding-top: 90px;
+  min-height: calc(100vh - 60px);
+
+  -webkit-transition: left 0.3s ease-in-out;
+  transition: margin-left 0.3s ease-in-out;
+  border-left: 1px solid var(ç);
+  background: url(../images/bg.avif) no-repeat top center;
+
+  &.content-collapse {
+    margin-left: 64px;
+  }
+}
+
+.content {
+  width: auto;
+  overflow-y: auto;
+
+  &.content-collapse {
+    left: 64px;
+  }
+}
+
+.container {
+  padding: 16px;
+}
+
+
+
+
+
+
+
+.move-enter-active {
+  animation: run-scale .1s ease-out 0s;
+}
+
+.move-leave-active {
+  animation: run-scale .1s ease-in 0s reverse;
+}
+
+.move-enter-from,
+.move-leave-to {
+  opacity: 0;
+}
+
+@keyframes run-scale {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+/*BaseForm*/
+
+.el-time-panel__content::after,
+.el-time-panel__content::before {
+  margin-top: -7px;
+}
+
+.el-time-spinner__wrapper .el-scrollbar__wrap:not(.el-scrollbar__wrap--hidden-default) {
+  padding-bottom: 0;
+}
+
+[class*=' el-icon-'],
+[class^='el-icon-'] {
+  speak: none;
+  font-style: normal;
+  font-weight: 400;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  vertical-align: baseline;
+  display: inline-block;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+[hidden] {
+  display: none !important;
+}

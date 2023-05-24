@@ -1,0 +1,19 @@
+.red {
+  --el-color-primary: #ff2551;
+}
+
+.pink {
+  --el-color-primary: #f47983;
+}
+
+.green {
+  --el-color-primary: #0c8918;
+}
+
+.brown {
+  --el-color-primary: #ae7000;
+}
+
+.grape {
+  --el-color-primary: #725e82;
+}

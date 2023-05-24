@@ -1,0 +1,20 @@
+@forward 'element-plus/theme-chalk/src/common/var.scss' with (
+  $colors: (
+    'primary': (
+      'base': #0052d9
+    ),
+    'success': (
+      'base': #2ba471
+    ),
+    'danger': (
+      'base': #d54941
+    )
+  ),
+  $menu: (
+    ('item-height': 50px)
+  )
+);
+
+// 如果只是按需导入，则可以忽略以下内容。
+// 如果你想导入所有样式:
+ @use 'element-plus/theme-chalk/src/index.scss' as *;

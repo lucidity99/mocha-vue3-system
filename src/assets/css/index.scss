@@ -1,0 +1,22 @@
+@use './color-light.scss';
+@use './icon.css';
+@use './main.scss';
+@use './element/element.scss';
+@use './dark/dark.scss';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* For rgb(255 115 179 / <alpha-value>) */
+    --color-primary: 255 115 179;
+
+    /* For hsl(198deg 93% 60% / <alpha-value>) */
+    --color-primary: 198deg 93% 60%;
+
+    /* For rgba(255, 115, 179, <alpha-value>) */
+    --color-primary: 255, 115, 179;
+  }
+}

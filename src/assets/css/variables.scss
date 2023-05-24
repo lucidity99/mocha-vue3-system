@@ -1,0 +1,27 @@
+$primary-color: #0052d9;
+$success-color: #2ba471;
+$danger-color: #d54941;
+$base-bgcolor: #262f3e;
+$base-border-color: #e8e8e8;
+
+$bg-color-page: #f0f0f0;
+
+// 循环1
+$sizes: 20px, 22px, 24px, 30px;
+@each $size in $sizes {
+  .font-#{$size} {
+    font-size: $size;
+  }
+}
+// 循环2
+$themes: (
+  'blue': blue,
+  'red': red,
+  'green': green
+);
+@each $key, $val in $themes {
+  .sect-#{$key} {
+    background-color: $val;
+    color: #fff;
+  }
+}

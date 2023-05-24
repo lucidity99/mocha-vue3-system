@@ -1,0 +1,11 @@
+@import './variables.scss';
+
+.tags-li {
+  &.active {
+    background-color: $primary-color;
+    color: #fff;
+    .tags-li-title {
+      color: #fff;
+    }
+  }
+}

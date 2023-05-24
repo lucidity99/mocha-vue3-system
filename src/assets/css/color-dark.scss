@@ -1,0 +1,23 @@
+$primary-color: #0e42d2;
+$base-bgcolor: #262f3e;
+
+.v-header {
+
+  border-bottom: 1px solid $base-bgcolor;
+}
+.login-wrap {
+  background: #324157;
+}
+
+.el-upload--text em {
+  color: $primary-color;
+}
+
+.tags-li.active {
+  border: 1px solid $primary-color;
+  background-color: $primary-color;
+}
+
+.collapse-btn:hover {
+  background: rgb(40, 52, 70);
+}
