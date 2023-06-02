@@ -1,9 +1,12 @@
 import { RouteRecordRaw } from 'vue-router'
+import { RoleEnum } from '~/enums/roleEnum'
+import Layout from '~/layout/index.vue'
 
 const routes: RouteRecordRaw[] = [
   {
     path: '/system',
     name: 'system',
+    component: Layout,
     meta: {
       title: 'system',
       icon: 'ep-setting',
@@ -15,7 +18,8 @@ const routes: RouteRecordRaw[] = [
         path: 'account',
         name: 'account',
         meta: {
-          title: 'accountManagement'
+          title: 'accountManagement',
+          roles: [RoleEnum.USER]
         },
         component: () => import('~/views/system/account/index.vue')
       },
@@ -23,7 +27,8 @@ const routes: RouteRecordRaw[] = [
         path: 'role',
         name: 'role',
         meta: {
-          title: 'roleManagement'
+          title: 'roleManagement',
+          roles: [RoleEnum.SUPER]
         },
         component: () => import('~/views/system/role/index.vue')
       },
@@ -40,7 +45,8 @@ const routes: RouteRecordRaw[] = [
         path: 'dept',
         name: 'dept',
         meta: {
-          title: 'deptManagement'
+          title: 'deptManagement',
+          roles: [RoleEnum.SUPER]
         },
         component: () => import('~/views/system/dept/index.vue')
       },
@@ -48,7 +54,8 @@ const routes: RouteRecordRaw[] = [
         path: 'password',
         name: 'password',
         meta: {
-          title: 'editPassword'
+          title: 'editPassword',
+          roles: [RoleEnum.USER]
         },
         component: () => import('~/views/system/password/index.vue')
       },
@@ -56,7 +63,8 @@ const routes: RouteRecordRaw[] = [
         path: 'profile',
         name: 'profile',
         meta: {
-          title: 'personalCenter'
+          title: 'personalCenter',
+          roles: [RoleEnum.USER]
         },
         component: () => import('~/views/system/profile/index.vue')
       },

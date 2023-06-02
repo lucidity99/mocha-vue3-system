@@ -14,7 +14,13 @@ declare module 'axios' {
 let pendingMap = new Map()
 
 function getRequestKey(config: AxiosRequestConfig) {
-  return (config.method || '') + config.url + '?' + qs.stringify(config?.data)
+  return (
+    (config.method || '') +
+    config.url +
+    '?' +
+    qs.stringify(config?.data) +
+    qs.stringify(config?.params)
+  )
 }
 
 function setPendingMap(config: AxiosRequestConfig) {
@@ -66,14 +72,14 @@ service.interceptors.response.use((response: AxiosResponse) => {
     }
   } else {
     const errMsg = errorMsgHandler(response.status)
-    errorHandler(errMsg, config.errorMode)
+    // errorHandler(errMsg, config.errorMode)
     Promise.reject()
   }
 })
 
 // 错误处理
 service.interceptors.response.use(undefined, (e) => {
-  errorHandler(e.response.status)
+  errorHandler(e?.response?.status || '')
 })
 
 export default service

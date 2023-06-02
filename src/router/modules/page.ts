@@ -1,22 +1,24 @@
 import { RouteRecordRaw } from 'vue-router'
+import Layout from '~/layout/index.vue'
 
 const routes: RouteRecordRaw[] = [
   {
     path: '/page',
     name: 'page',
+    component: Layout,
+    redirect: '/page/tabs',
     meta: {
       title: 'pages',
       icon: 'ep-brush',
       order: 3
     },
-    redirect: '/page/tabs',
+
     children: [
       {
         path: 'tabs',
         name: 'tabs',
         meta: {
           title: 'tab',
-          permiss: '3',
           icon: 'ep-price-tag'
         },
 

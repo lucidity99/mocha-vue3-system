@@ -1,9 +1,11 @@
 import { RouteRecordRaw } from 'vue-router'
+import Layout from '~/layout/index.vue'
 
 const routes: RouteRecordRaw[] = [
   {
     path: '/comp',
     name: 'comp',
+    component: Layout,
     meta: {
       title: 'components',
       icon: 'ep-goods',
@@ -67,7 +69,6 @@ const routes: RouteRecordRaw[] = [
         name: 'upload',
         meta: {
           title: 'upload',
-          permiss: '6',
           icon: 'ep-upload'
         },
         component: () => import(/* webpackChunkName: "upload" */ '~/views/comp/upload/upload.vue')
@@ -77,7 +78,6 @@ const routes: RouteRecordRaw[] = [
         name: 'icon',
         meta: {
           title: 'icons',
-          permiss: '10',
           icon: 'ep-sunrise'
         },
         component: () => import(/* webpackChunkName: "icon" */ '~/views/feat/icons/index.vue')
@@ -87,7 +87,6 @@ const routes: RouteRecordRaw[] = [
         name: 'svg',
         meta: {
           title: 'svg',
-          permiss: '10',
           icon: 'ep-sunrise'
         },
         component: () => import(/* webpackChunkName: "icon" */ '~/views/comp/svg/index.vue')
@@ -96,8 +95,7 @@ const routes: RouteRecordRaw[] = [
         path: 'canvas',
         name: 'canvas',
         meta: {
-          title: 'canvas',
-          permiss: '10'
+          title: 'canvas'
         },
         component: () => import(/* webpackChunkName: "icon" */ '~/views/comp/canvas/index.vue')
       }

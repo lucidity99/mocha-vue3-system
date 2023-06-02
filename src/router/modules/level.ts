@@ -1,9 +1,12 @@
 import { RouteRecordRaw } from 'vue-router'
+import Layout from '~/layout/index.vue'
 
 const routes: RouteRecordRaw[] = [
   {
     path: '/level',
     name: 'level',
+    component: Layout,
+    redirect: '/level/menu1',
     meta: {
       title: 'level',
       icon: 'ep-connection',

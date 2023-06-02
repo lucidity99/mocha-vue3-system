@@ -1,9 +1,12 @@
 import { RouteRecordRaw } from 'vue-router'
+import Layout from '~/layout/index.vue'
 
 const routes: RouteRecordRaw[] = [
   {
     path: '/chart',
     name: 'chart',
+    component: Layout,
+    redirect: '/chart/echart',
     meta: {
       title: 'chart',
       icon: 'ep-pie-chart',

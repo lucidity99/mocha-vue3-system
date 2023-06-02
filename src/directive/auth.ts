@@ -6,15 +6,15 @@ export default {
   mounted(el: HTMLElement, binding: DirectiveBinding) {
     const val = binding.value
     const useUser = useUserStore()
-    const permiss = useUser.permiss
+    const role = useUser.role
     const parentEl = el.parentElement
 
     let flag = true
     // 可以传入字符串和数组
     if (typeof val === 'string') {
-      flag = permiss.includes(val)
+      flag = role === val
     } else {
-      flag = val.some((item: string) => permiss.includes(item))
+      flag = val.includes(role)
     }
 
     if (!flag) parentEl?.removeChild(el)

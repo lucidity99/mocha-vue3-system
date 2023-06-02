@@ -26,6 +26,8 @@ app.use(i18n)
 app.use(pinia)
 app.use(router)
 
+import '~/router/permission'
+
 // 在 main.ts文件中设置svg-icon为全局组件
 import svgIcon from '~/components/svgIcon/index.vue'
 app.component('svg-icon', svgIcon)

@@ -51,17 +51,16 @@
         <el-table-column type="selection" align="center" fixed />
         <el-table-column prop="name" label="客户名称" min-width="200" show-overflow-tooltip fixed />
         <el-table-column prop="source" label="客户来源" min-width="100" />
+        <el-table-column label="客户类型" min-width="100">
+          <template #default="scope">
+            <MoDict :value="scope.row.type" :dicts="dicts.clientType" />
+          </template>
+        </el-table-column>
         <el-table-column prop="mobile" label="手机" min-width="200" />
         <el-table-column prop="mail" label="邮箱" min-width="200" show-overflow-tooltip />
         <el-table-column label="状态">
           <template #default="scope">
-            <el-tag
-              :type="
-                scope.row.status === '0' ? 'success' : scope.row.status === '1' ? 'danger' : ''
-              "
-            >
-              {{ scope.row.status }}
-            </el-tag>
+            <MoDict :value="scope.row.status" :dicts="dicts.status" />
           </template>
         </el-table-column>
         <el-table-column prop="address" label="地址" min-width="150" show-overflow-tooltip />
@@ -72,12 +71,8 @@
         <el-table-column prop="createdBy" label="创建人" min-width="200" />
         <el-table-column label="操作" width="100" fixed="right" align="center">
           <template #default="scope">
-            <i-ep-edit v-permiss="15" class="mr-4 cursor-pointer" />
-            <i-ep-delete
-              class="text-red-500 cursor-pointer"
-              @click="handleDelete(scope.row.id)"
-              v-permiss="16"
-            />
+            <i-ep-edit class="mr-4 cursor-pointer" />
+            <i-ep-delete class="text-red-500 cursor-pointer" @click="handleDelete(scope.row.id)" />
           </template>
         </el-table-column>
       </el-table>
@@ -95,8 +90,8 @@
 <script setup lang="ts">
 import { ref, reactive } from 'vue'
 import { Search } from '@element-plus/icons-vue'
-import { useTable } from '../table'
-
+import { useTable } from '~/hooks/useTable'
+import { useDict } from '~/hooks/useDict'
 import clientApi from '~/api/client'
 
 let moreVisible = ref(false)
@@ -121,6 +116,8 @@ const {
   handleDelete,
   handleSelectionChange
 } = useTable(clientApi.getClientList, queryForm, clientApi.deleteClient)
+
+let { dicts } = useDict(['status', 'clientType'])
 </script>
 
 <style scoped></style>

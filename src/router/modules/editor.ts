@@ -1,12 +1,13 @@
 import { RouteRecordRaw } from 'vue-router'
+import Layout from '~/layout/index.vue'
 
 const routes: RouteRecordRaw[] = [
   {
     path: '/editor',
     name: 'editor',
+    component: Layout,
     meta: {
       title: 'editor',
-      permiss: '8',
       icon: 'ep-document',
       order: 8
     },
@@ -15,8 +16,7 @@ const routes: RouteRecordRaw[] = [
         path: 'tinymce',
         name: 'tinymce',
         meta: {
-          title: 'tinymce',
-          permiss: '8'
+          title: 'tinymce'
         },
         component: () => import(/* webpackChunkName: "editor" */ '~/views/editor/Tinymce.vue')
       },
@@ -24,8 +24,7 @@ const routes: RouteRecordRaw[] = [
         path: 'wangEditor',
         name: 'wangEditor',
         meta: {
-          title: 'wangEditor',
-          permiss: '8'
+          title: 'wangEditor'
         },
         component: () => import(/* webpackChunkName: "editor" */ '~/views/editor/WangEditor.vue')
       },
@@ -33,8 +32,7 @@ const routes: RouteRecordRaw[] = [
         path: 'markdown',
         name: 'markdown',
         meta: {
-          title: 'markdownEditor',
-          permiss: '9'
+          title: 'markdownEditor'
         },
         component: () => import(/* webpackChunkName: "editor" */ '~/views/editor/Markdown.vue')
       },
@@ -42,8 +40,7 @@ const routes: RouteRecordRaw[] = [
         path: 'codemirror',
         name: 'codemirror',
         meta: {
-          title: 'codemirror',
-          permiss: '9'
+          title: 'codemirror'
         },
         component: () => import(/* webpackChunkName: "editor" */ '~/views/editor/Codemirror.vue')
       }

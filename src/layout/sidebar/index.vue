@@ -12,16 +12,22 @@
 </template>
 
 <script lang="ts" setup>
-import { useRouter } from 'vue-router'
-import SidebarItem from './SidebarItem.vue'
+import { RouteRecordRaw } from 'vue-router'
+import router from '~/router'
 import { useSidebarStore } from '~/store/sidebar'
-
-const router = useRouter()
-const items = router.options.routes
-  .find((val) => val.name === 'Home')
-  ?.children?.filter((val) => !val.hidden)
+import { useUserStore } from '~/store/user'
+import SidebarItem from './SidebarItem.vue'
 
 const sidebar = useSidebarStore()
+const useUser = useUserStore()
+
+let items = <RouteRecordRaw[]>[]
+
+if (import.meta.env.VITE_PERMISSION_MODE === 'CONSTANT') {
+  items = router.options.routes.filter((r) => !r.hidden)
+} else {
+  items = useUser.menuRoutes
+}
 </script>
 
 <style lang="scss" scoped>

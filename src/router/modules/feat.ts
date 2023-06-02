@@ -1,12 +1,13 @@
 import { RouteRecordRaw } from 'vue-router'
+import Layout from '~/layout/index.vue'
 
 const routes: RouteRecordRaw[] = [
   {
     path: '/feat',
     name: 'feat',
+    component: Layout,
     meta: {
       title: 'feats',
-      permiss: '2',
       icon: 'ep-reading',
       order: 2
     },
@@ -15,8 +16,7 @@ const routes: RouteRecordRaw[] = [
         path: 'download',
         name: 'download',
         meta: {
-          title: 'download',
-          permiss: '8'
+          title: 'download'
         },
         component: () => import(/* webpackChunkName: "feat" */ '~/views/feat/download.vue')
       },
@@ -54,6 +54,14 @@ const routes: RouteRecordRaw[] = [
               import(/* webpackChunkName: "feat" */ '~/views/feat/direct/Adaptive.vue')
           }
         ]
+      },
+      {
+        path: 'avatar',
+        name: 'avatar',
+        meta: {
+          title: 'avatar'
+        },
+        component: () => import(/* webpackChunkName: "feat" */ '~/views/feat/Avatar.vue')
       }
     ]
   }

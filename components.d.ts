@@ -65,6 +65,7 @@ declare module '@vue/runtime-core' {
     IEpQuestionFilled: typeof import('~icons/ep/question-filled')['default']
     IEpSearch: typeof import('~icons/ep/search')['default']
     IEpSetting: typeof import('~icons/ep/setting')['default']
+    MoDict: typeof import('./src/components/MoDict.vue')['default']
     MoIcon: typeof import('./src/components/MoIcon.vue')['default']
     MyEchart: typeof import('./src/components/echarts/MyEchart.vue')['default']
     PageHeader: typeof import('./src/components/UI/PageHeader.vue')['default']

@@ -4,7 +4,12 @@
     v-if="item.children && item.children.length > 0"
   >
     <template #title>
-      <MoIcon :icon-name="item.meta.icon" v-if="level === 0" class="ml-1 mr-1 text-lg" />
+      <MoIcon
+        :icon-name="item.meta.icon"
+        v-if="level === 0 && item.meta.icon"
+        class="ml-1 mr-1 text-lg"
+      />
+
       <span>{{ $t(`route.${item.meta.title}`) }}</span>
     </template>
     <SidebarItem

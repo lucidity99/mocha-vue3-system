@@ -1,37 +1,30 @@
 import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router'
 
-import { useUserStore } from '~/store/user'
-import Home from '~/layout/index.vue'
-
 const modules = import.meta.glob('./modules/**/*.ts', { eager: true })
 
-const routeModuleList: RouteRecordRaw[] = []
+let routeModuleList: RouteRecordRaw[] = []
 
+// 获取路由并排序
 Object.values(modules).forEach((key: any) => {
   const mod = key.default || []
   const modList = Array.isArray(mod) ? [...mod] : [mod]
   routeModuleList.push(...modList)
-  routeModuleList.sort((a, b) => {
-    const orderA = a?.meta?.order || 0
-    const orderB = b?.meta?.order || 0
-    return orderA - orderB
-  })
 })
 
-const routes: RouteRecordRaw[] = [
+const constantRoutes: RouteRecordRaw[] = [
   {
     path: '/',
     name: 'Home',
+    redirect: '/dashboard',
+    hidden: true,
     meta: {
       title: 'home'
-    },
-    component: Home,
-    redirect: '/dashboard/workbench',
-    children: [...routeModuleList]
+    }
   },
   {
     path: '/login',
     name: 'Login',
+    hidden: true,
     meta: {
       title: 'signIn'
     },
@@ -40,31 +33,36 @@ const routes: RouteRecordRaw[] = [
   {
     path: '/403',
     name: '403',
+    hidden: true,
     meta: {
       title: '没有权限'
     },
-    component: () => import(/* webpackChunkName: "403" */ '../views/403.vue')
+    component: () => import(/* webpackChunkName: "400" */ '../views/403.vue')
   }
 ]
+const lastRoutes = [
+  {
+    path: '/:pathMatch(.*)*',
+    name: '404',
+    hidden: true,
+    meta: {
+      title: '404'
+    },
+    component: () => import(/* webpackChunkName: "400" */ '../views/404.vue')
+  }
+]
+
+let routes = constantRoutes
+
+// 前端固定路由模式
+if (import.meta.env.VITE_PERMISSION_MODE === 'CONSTANT') {
+  routes = [...routeModuleList, ...constantRoutes]
+}
 
 const router = createRouter({
   history: createWebHashHistory(),
   routes
 })
 
-router.beforeEach((to, from, next) => {
-  const userStore = useUserStore()
-  document.title = `${to.meta.title} | mocha vue3 admin`
-  const role = userStore.username
-
-  if (!role && to.path !== '/login') {
-    next('/login')
-  } else if (to.meta.permiss && !userStore.userPermiss.includes(to.meta.permiss)) {
-    // 如果没有权限，则进入403
-    next('/403')
-  } else {
-    next()
-  }
-})
-
 export default router
+export { constantRoutes, routeModuleList, lastRoutes }

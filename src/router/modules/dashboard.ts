@@ -1,16 +1,18 @@
 import { RouteRecordRaw } from 'vue-router'
+import Layout from '~/layout/index.vue'
 
 const routes: RouteRecordRaw[] = [
   {
     path: '/dashboard',
     name: 'dashboard',
+    component: Layout,
+    redirect: '/dashboard/workbench',
     meta: {
       title: 'dashboard',
-      permiss: '1',
       icon: 'ep-sort',
       order: 1
     },
-    redirect: '/dashboard/workbench',
+
     children: [
       {
         path: 'workbench',

@@ -1,4 +1,4 @@
-import { ref, reactive, onMounted, onUnmounted } from 'vue'
+import { ref, reactive, onMounted } from 'vue'
 import { ElMessage, ElMessageBox, ElNotification } from 'element-plus'
 
 export function useTable(loadDataFunc: Function, queryForm: {}, deleteDataFunc: Function) {
@@ -38,7 +38,6 @@ export function useTable(loadDataFunc: Function, queryForm: {}, deleteDataFunc: 
   let multipleSelection = ref([])
   const handleSelectionChange = (val: []) => {
     multipleSelection.value = val
-    console.log(multipleSelection.value)
   }
 
   // 单个删除、批量删除
@@ -67,7 +66,6 @@ export function useTable(loadDataFunc: Function, queryForm: {}, deleteDataFunc: 
 
   // 导出表格数据
   const handleExport = () => {
-    console.log('export')
     ElMessageBox.confirm('确定导出所选数据？', '提示')
       .then(() => {
         ElNotification({

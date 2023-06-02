@@ -1,10 +1,12 @@
-import { _RouteRecordBase } from 'vue-router'
+import { _RouteRecordBase, RouteMeta } from 'vue-router'
 
 declare module 'vue-router' {
   interface _RouteRecordBase {
-    meta: {
-      order?: number
-    }
     hidden?: boolean
+  }
+
+  interface RouteMeta {
+    order?: number
+    roles?: array
   }
 }
