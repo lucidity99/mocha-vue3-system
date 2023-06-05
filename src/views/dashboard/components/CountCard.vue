@@ -9,7 +9,7 @@
       <MoIcon :icon-name="icon" class="text-xl text-white"></MoIcon>
     </div>
     <div>
-      <div class="text-2xl">{{ count }}</div>
+      <GsapNumber class="text-2xl" :to="count" :from="0" :duration="1" />
       <div class="text-sm text-gray-500">{{ title }}</div>
     </div>
     <div class="absolute right-2 top-2">
@@ -27,9 +27,11 @@
 </template>
 
 <script setup lang="ts">
+import GsapNumber from '~/components/gsap/GsapNumber.vue'
+
 const props = defineProps<{
   title: string
-  count: string
+  count: number
   rate: string
   desc: string
   icon: any

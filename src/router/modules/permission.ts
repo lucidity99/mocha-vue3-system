@@ -3,8 +3,8 @@ import Layout from '~/layout/index.vue'
 
 const routes: RouteRecordRaw = {
   path: '/permission',
-  name: 'permission',
-  components: Layout,
+  name: 'permissions',
+  component: Layout,
   redirect: '/permission/index',
   meta: {
     title: 'permission',
@@ -14,9 +14,9 @@ const routes: RouteRecordRaw = {
   children: [
     {
       path: 'index',
-      name: 'pagePermiss',
+      name: 'buttonPermission',
       component: () =>
-        import(/* webpackChunkName: "permission" */ '~/views/permission/Permission.vue'),
+        import(/* webpackChunkName: "permission" */ '~/views/permission/ButtonPermission.vue'),
       meta: {
         title: 'permission'
       }

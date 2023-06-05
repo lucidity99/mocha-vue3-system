@@ -28,19 +28,8 @@ if (import.meta.env.VITE_PERMISSION_MODE === 'CONSTANT') {
 } else {
   items = useUser.menuRoutes
 }
-</script>
 
-<style lang="scss" scoped>
-.el-aside {
-  > .el-menu {
-    position: fixed;
-    width: 200px;
-    border-right: 0 none;
-    height: calc(100vh - 60px);
-    overflow-y: auto;
-  }
-  > .el-menu--collapse {
-    width: 64px;
-  }
-}
-</style>
+items = items.sort(
+  (a: RouteRecordRaw, b: RouteRecordRaw) => (a?.meta?.order || 0) - (b?.meta?.order || 0)
+)
+</script>

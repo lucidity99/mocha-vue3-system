@@ -11,6 +11,8 @@ Object.values(modules).forEach((key: any) => {
   routeModuleList.push(...modList)
 })
 
+console.log(routeModuleList)
+
 const constantRoutes: RouteRecordRaw[] = [
   {
     path: '/',

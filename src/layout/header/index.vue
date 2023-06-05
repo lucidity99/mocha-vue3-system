@@ -108,18 +108,3 @@ const handleCommand = (command: string) => {
   }
 }
 </script>
-<style scoped lang="scss">
-.v-header {
-  position: fixed;
-  z-index: 10;
-  display: flex;
-  align-items: center;
-  width: 100%;
-  height: 60px;
-  border-bottom: 1px solid var(--el-border-color);
-
-  .logo {
-    color: var(--el-color-primary);
-  }
-}
-</style>

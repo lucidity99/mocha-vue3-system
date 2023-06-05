@@ -1,7 +1,7 @@
 <template>
   <el-sub-menu
     :index="getPath(parentPath, item.path)"
-    v-if="item.children && item.children.length > 0"
+    v-if="filteredItems && filteredItems.length > 0"
   >
     <template #title>
       <MoIcon
@@ -16,7 +16,7 @@
       :item="item1"
       :parent-path="getPath(parentPath, item.path)"
       :level="level + 1"
-      v-for="(item1, index1) in item.children"
+      v-for="(item1, index1) in filteredItems"
     />
   </el-sub-menu>
   <el-menu-item :index="getPath(parentPath, item.path)" v-else>
@@ -26,10 +26,18 @@
 </template>
 
 <script lang="ts" setup name="SidebarItem">
+import { computed } from 'vue'
+import { RouteRecordRaw } from 'vue-router'
+
 const props = defineProps({
   item: { type: Object, default: () => {} },
   parentPath: { type: String, default: '' },
   level: { type: Number, default: 0 }
+})
+
+const filteredItems = computed(() => {
+  if (props.item.children) return props.item.children.filter((val: RouteRecordRaw) => !val.hidden)
+  else return null
 })
 
 function getPath(parentPath: string, path: string) {

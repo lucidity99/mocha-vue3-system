@@ -9,7 +9,7 @@ const routes: RouteRecordRaw[] = [
     redirect: '/dashboard/workbench',
     meta: {
       title: 'dashboard',
-      icon: 'ep-sort',
+      icon: 'ep-sunrise',
       order: 1
     },
 

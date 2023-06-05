@@ -35,7 +35,7 @@ import PieChart from './components/PieChart.vue'
 const cardData = [
   {
     title: '访问数',
-    count: '134,226',
+    count: 134226,
     desc: 'visit numbers',
     rate: '+25.8%',
     icon: 'ep-ice-cream',
@@ -43,7 +43,7 @@ const cardData = [
   },
   {
     title: '下载量',
-    count: '8,476',
+    count: 8476,
     desc: 'download ',
     rate: '+0.8%',
     icon: 'ep-lollipop',
@@ -51,7 +51,7 @@ const cardData = [
   },
   {
     title: '销售额',
-    count: '134,226',
+    count: 134226,
     desc: 'sales s',
     rate: '+9.16%',
     icon: 'ep-coffee-cup',
@@ -59,7 +59,7 @@ const cardData = [
   },
   {
     title: '新用户数',
-    count: '912',
+    count: 912,
     desc: 'new visitors',
     rate: '+5.1%',
     icon: 'ep-watermelon',

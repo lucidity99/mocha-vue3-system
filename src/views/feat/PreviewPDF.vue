@@ -1,5 +1,9 @@
 <template>
   <div class="m-4 shadow">
+    <div class="flex">
+      <div class="mr-4" @click="changePDF('/Javascript中的函数.pdf')">Javascript中的函数</div>
+      <div @click="changePDF('/L16 心动-编配谱.pdf')">《心动》钢琴谱</div>
+    </div>
     <div v-adaptive>
       <vue-pdf-embed
         ref="pdfRef"
@@ -70,5 +74,10 @@ function print() {
 }
 function handlePasswordRequest(callback: any, retry) {
   callback(prompt(retry ? 'Enter password again' : 'Enter password'))
+}
+
+function changePDF(source: string) {
+  pdfSource.value = source
+  page.value = 1
 }
 </script>
