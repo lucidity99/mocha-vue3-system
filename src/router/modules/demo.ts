@@ -7,28 +7,28 @@ const routes: RouteRecordRaw[] = [
     name: 'demo',
     component: Layout,
     meta: {
-      title: '示例',
+      title: 'demo',
       icon: 'ep-collection',
       order: 11
     },
     redirect: '/demo/clientList',
     children: [
       {
-        path: 'clientList',
-        name: 'clientList',
+        path: 'provideAndInject',
+        name: 'provide&provideAndInject',
         meta: {
-          title: 'clientList'
+          title: 'provideAndInject'
         },
-        component: () => import('~/views/demo/ClientList.vue')
+        component: () =>
+          import(/* webpackChunkName: "feat" */ '~/views/demo/provideInject/index.vue')
       },
       {
-        path: 'clientDetails',
-        name: 'clientDetails',
-        hidden: true,
+        path: 'jsx',
+        name: 'jsx',
         meta: {
-          title: 'clientDetails'
+          title: 'jsx'
         },
-        component: () => import('~/views/demo/ClientDetails.vue')
+        component: () => import(/* webpackChunkName: "feat" */ '~/views/demo/jsx/SimpleJxs.vue')
       }
     ]
   }

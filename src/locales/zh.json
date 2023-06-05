@@ -53,6 +53,9 @@
     "menu2": "Menu 2",
     "menu21": "Menu 2-1",
     "menu211": "Menu 2-1-1",
-    "about": "关于"
+    "about": "关于",
+    "demo": "示例",
+    "jsx": "jsx",
+    "provideAndInject": "依赖注入"
   }
 }

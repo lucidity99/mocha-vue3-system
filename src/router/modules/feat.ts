@@ -70,15 +70,6 @@ const routes: RouteRecordRaw[] = [
           title: 'GSAP'
         },
         component: () => import(/* webpackChunkName: "feat" */ '~/views/feat/GSAP.vue')
-      },
-      {
-        path: 'provide',
-        name: 'provide',
-        meta: {
-          title: 'provide'
-        },
-        component: () =>
-          import(/* webpackChunkName: "feat" */ '~/views/feat/provideInject/index.vue')
       }
     ]
   }

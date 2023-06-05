@@ -6,6 +6,7 @@ import Components from 'unplugin-vue-components/vite'
 import IconsResolver from 'unplugin-icons/resolver'
 import Icons from 'unplugin-icons/vite'
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
+import vueJsx from '@vitejs/plugin-vue-jsx'
 import path from 'path'
 import dayjs from 'dayjs'
 import pkg from './package.json'
@@ -52,6 +53,7 @@ export default ({ mode }) => {
           }
         }
       }),
+      vueJsx(),
       VueSetupExtend(),
       AutoImport({
         resolvers: [
