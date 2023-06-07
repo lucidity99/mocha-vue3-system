@@ -54,7 +54,8 @@ import { Lock, User } from '@element-plus/icons-vue'
 import { UserInfo } from '~/types/index'
 
 const router = useRouter()
-const param = reactive<UserInfo>({
+const param: UserInfo = reactive({
+  userid: 1,
   username: 'admin',
   password: '123123'
 })

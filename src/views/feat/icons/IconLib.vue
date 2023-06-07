@@ -8,9 +8,12 @@
 </template>
 
 <script setup lang="ts">
-const props = defineProps<{
-  list: string[]
-}>()
+const props = withDefaults(
+  defineProps<{
+    list: string[]
+  }>(),
+  { list: () => [] }
+)
 </script>
 
 <style scoped lang="scss">

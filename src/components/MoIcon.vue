@@ -6,7 +6,9 @@
 import { addCollection } from 'iconify-icon'
 import ep from '@iconify-json/ep/icons.json'
 
-const props = defineProps<{ iconName: string }>()
+const props = withDefaults(defineProps<{ iconName: string }>(), {
+  iconName: ''
+})
 
 addCollection(ep)
 </script>

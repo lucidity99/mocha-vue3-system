@@ -24,7 +24,9 @@
 import { ref, reactive, computed } from 'vue'
 import { FormInstance } from 'element-plus'
 
-const props = defineProps<{ visible: boolean }>()
+const props = withDefaults(defineProps<{ visible: boolean }>(), {
+  visible: false
+})
 const emit = defineEmits(['update:visible', 'update'])
 
 let dialogVisible = computed({

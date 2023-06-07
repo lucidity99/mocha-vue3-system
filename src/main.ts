@@ -63,7 +63,6 @@ app.config.warnHandler = (msg, instance, trace) => {
 }
 
 app.config.globalProperties.$globalMsg = 'hello'
-console.log(app.config)
 
 app.provide('$globalName', 'mocha-vue3-admin')
 app.mount('#app')

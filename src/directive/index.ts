@@ -1,14 +1,20 @@
 import { App } from 'vue'
-import color from './color'
-import watermark from './watermark'
-import adaptive from './adaptive'
-import permiss from './permiss'
-import auth from './auth'
+
+const modules = import.meta.glob('../directive/**/*.ts', {
+  eager: true
+})
+
+let mapDirective = new Map()
+
+Object.keys(modules).forEach((key) => {
+  if (modules[key] && modules[key].default) {
+    const newKey = key.replace(/^\.\/|\.ts|\.js/g, '')
+    mapDirective.set(newKey, modules[key].default)
+  }
+})
 
 export default (app: App) => {
-  app.directive('color', color)
-  app.directive('watermark', watermark)
-  app.directive('adaptive', adaptive)
-  app.directive('permiss', permiss)
-  app.directive('auth', auth)
+  mapDirective.forEach((value, key) => {
+    app.directive(key, value)
+  })
 }

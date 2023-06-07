@@ -5,9 +5,12 @@
 <script setup lang="ts">
 import { ref, computed } from 'vue'
 
-const props = defineProps<{
-  value: string
-}>()
+const props = withDefaults(
+  defineProps<{
+    value: string
+  }>(),
+  { value: '' }
+)
 
 const emit = defineEmits(['update:value'])
 

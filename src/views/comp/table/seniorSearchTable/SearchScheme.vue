@@ -21,9 +21,14 @@
 import { ref, computed } from 'vue'
 import { SchemeItem } from './type'
 
-const props = defineProps<{
-  data: SchemeItem[]
-}>()
+const props = withDefaults(
+  defineProps<{
+    data: SchemeItem[]
+  }>(),
+  {
+    data: () => []
+  }
+)
 
 const emit = defineEmits(['update:data', 'change'])
 

@@ -4,14 +4,12 @@ const modules = import.meta.glob('./modules/**/*.ts', { eager: true })
 
 let routeModuleList: RouteRecordRaw[] = []
 
-// 获取路由并排序
+// 获取模块路由
 Object.values(modules).forEach((key: any) => {
   const mod = key.default || []
   const modList = Array.isArray(mod) ? [...mod] : [mod]
   routeModuleList.push(...modList)
 })
-
-console.log(routeModuleList)
 
 const constantRoutes: RouteRecordRaw[] = [
   {

@@ -36,6 +36,14 @@ const routes: RouteRecordRaw[] = [
         },
         children: [
           {
+            path: 'index',
+            name: 'diretivesAll',
+            meta: {
+              title: 'customDirectives'
+            },
+            component: () => import(/* webpackChunkName: "feat" */ '~/views/feat/direct/index.vue')
+          },
+          {
             path: 'watermark',
             name: 'watermark',
             meta: {

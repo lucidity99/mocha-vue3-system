@@ -29,7 +29,7 @@
           <template #header>
             <div class="flex justify-between card-header">
               <span>最新动态</span>
-              <el-link v-permiss="['btn_more1']">查看更多</el-link>
+              <el-link v-permiss="['2']">查看更多</el-link>
               <el-link v-auth="'super1'">查看更多</el-link>
             </div>
           </template>

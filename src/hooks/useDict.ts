@@ -3,7 +3,7 @@ import system from '~/api/system'
 import systemApi from '~/api/system'
 
 export function useDict(dictType: Array<string>) {
-  let dicts = reactive<any>({})
+  let dicts: any = reactive({})
 
   onMounted(() => {
     let ps: Promise<any>[] = []

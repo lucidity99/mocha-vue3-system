@@ -29,14 +29,17 @@
 <script setup lang="ts">
 import GsapNumber from '~/components/gsap/GsapNumber.vue'
 
-const props = defineProps<{
-  title: string
-  count: number
-  rate: string
-  desc: string
-  icon: any
-  color: string
-}>()
+const props = withDefaults(
+  defineProps<{
+    title: string
+    count: number
+    rate: string
+    desc?: string
+    icon: string
+    color: string
+  }>(),
+  { title: '', count: 0, rate: '', desc: '', icon: '', color: '' }
+)
 
 const icon1 = 'IceCream'
 

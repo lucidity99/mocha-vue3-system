@@ -49,7 +49,7 @@ const ctOptions = {
   date: CtDate
 }
 
-let formData = reactive<SearchFormItem>({
+let formData: SearchFormItem = reactive({
   code: '',
   condition: '',
   value: '',
