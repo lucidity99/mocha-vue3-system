@@ -1,7 +1,7 @@
 import { ref, reactive, onMounted } from 'vue'
 import { ElMessage, ElMessageBox, ElNotification } from 'element-plus'
 
-export function useTable(loadDataFunc: Function, queryForm: {}, deleteDataFunc: Function) {
+export function useTable(loadDataFunc: Function, queryForm: {}, deleteDataFunc?: Function) {
   let loading = ref(true)
   let tableData = ref()
   let total = ref(0)

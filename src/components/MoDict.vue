@@ -10,10 +10,16 @@ interface DictItem {
   class?: string
   effect?: string
 }
-const props = defineProps<{
-  value: string
-  dicts: any
-}>()
+const props = withDefaults(
+  defineProps<{
+    value: string
+    dicts: []
+  }>(),
+  {
+    value: '',
+    dicts: () => []
+  }
+)
 
 let item = <DictItem>{}
 if (props.dicts) {

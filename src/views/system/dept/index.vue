@@ -1,45 +1,36 @@
 <template>
-  <div class="container">
+  <div class="m-4">
     <el-form :model="queryForm" inline>
       <el-form-item label="关键字" prop="keyword"
         ><el-input v-model="queryForm.keyword"
       /></el-form-item>
-      <el-form-item><el-button @click="search">search</el-button></el-form-item>
+      <el-form-item><el-button @click="handleSearch">search</el-button></el-form-item>
     </el-form>
-    <el-table :data="listData" ref="tableRef" row-key="deptId" v-adaptive>
-      <el-table-column prop="deptName" label="名称" sortable />
-      <el-table-column prop="status" label="状态" sortable>
-        <template #default="{ row, $index }">
-          <el-tag>{{ row.status === '0' ? '禁用' : '正常' }}</el-tag>
+    <el-table :data="tableData" ref="tableRef" v-adaptive v-loading="loading">
+      <el-table-column prop="deptName" label="名称" />
+      <el-table-column prop="status" label="状态">
+        <template #default="{ row }">
+          <MoDict :value="row.status" :dicts="dicts.status" />
         </template>
       </el-table-column>
-      <el-table-column prop="remark" label="备注" sortable />
-      <el-table-column prop="updated" label="更新时间" sortable />
-      <el-table-column prop="created" label="创建时间" sortable />
+      <el-table-column prop="remark" label="备注" />
+      <el-table-column prop="updated" label="更新时间" />
+      <el-table-column prop="created" label="创建时间" />
     </el-table>
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref, reactive, onMounted } from 'vue'
+import { reactive } from 'vue'
 import systemApi from '~/api/system'
+import { useDict } from '~/hooks/useDict'
+import { useTable } from '~/hooks/useTable'
 
-let listData = ref([])
 let queryForm = reactive({
   keyword: ''
 })
 
-function getDataList() {
-  systemApi.getDeptTree(queryForm).then((res) => {
-    listData.value = res
-  })
-}
+const { tableData, loading, handleSearch } = useTable(systemApi.getDeptTree, queryForm)
 
-onMounted(() => {
-  getDataList()
-})
-
-function search() {
-  getDataList()
-}
+let { dicts } = useDict(['status'])
 </script>

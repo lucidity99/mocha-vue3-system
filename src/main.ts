@@ -50,4 +50,20 @@ initTheme(pinia)
 // app.use(ElementPlus) //全局注册element-plus
 // app.use(VForm3)
 
+// 应用实例会暴露一个 .config 对象允许我们配置一些应用级的选项，
+// 例如定义一个应用级的错误处理器，用来捕获所有子组件上的错误：
+app.config.errorHandler = (err, instance, info) => {
+  console.error('error ---', err)
+  console.error('instance ---', instance)
+  console.error('info ---', info)
+}
+// 为 Vue 的运行时警告指定一个自定义处理函数
+app.config.warnHandler = (msg, instance, trace) => {
+  // `trace` is the component hierarchy trace
+}
+
+app.config.globalProperties.$globalMsg = 'hello'
+console.log(app.config)
+
+app.provide('$globalName', 'mocha-vue3-admin')
 app.mount('#app')
