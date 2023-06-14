@@ -17,7 +17,14 @@ export const useThemeStore = defineStore(
       css.value[property] = value
     }
 
-    return { scheme, css, setCSS, setScheme }
+    // 设置用户定义的CSS变量
+    function setCustomized(vars: any) {
+      Object.keys(vars).forEach((item) => {
+        setCSS(vars[item].key, vars[item].value)
+      })
+    }
+
+    return { scheme, css, setCSS, setScheme, setCustomized }
   },
   {
     persist: true

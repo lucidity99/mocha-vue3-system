@@ -1,19 +1,23 @@
-.red {
+.blue #app {
+  --el-color-primary: #0052d9;
+}
+
+.red #app {
   --el-color-primary: #ff2551;
 }
 
-.pink {
+.pink #app {
   --el-color-primary: #f47983;
 }
 
-.green {
+.green #app {
   --el-color-primary: #0c8918;
 }
 
-.brown {
+.brown #app {
   --el-color-primary: #ae7000;
 }
 
-.grape {
+.grape #app {
   --el-color-primary: #725e82;
 }

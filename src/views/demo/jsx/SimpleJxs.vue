@@ -1,22 +1,32 @@
-<script lang="tsx">
-import { defineComponent, ref } from 'vue'
+<!-- <script lang="tsx">
+import { ref, h } from 'vue'
 
-export default defineComponent({
-  setup() {
-    let items = ref([
-      { id: 1, text: 'mocha' },
-      { id: 2, text: 'yy' }
-    ])
+export default {
+  setup(props) {
+    const count = ref(1)
 
-    return () => (
-      <div class="m-4">
-        <ul>
-          {items.value.map(({ id, text }) => {
-            return <li key={id}>{text}</li>
-          })}
-        </ul>
-      </div>
-    )
+    // 返回渲染函数
+    return () =>
+      h(
+        'div',
+        Array.from({ length: 20 }).map(() => {
+          return h('p', 'hi')
+        })
+      )
   }
-})
+}
+</script> -->
+<template>
+  <hd />
+</template>
+<script lang="tsx" setup>
+import { h } from 'vue'
+
+// 返回渲染函数
+const hd = h(
+  'div',
+  Array.from({ length: 20 }).map(() => {
+    return h('p', 'hi')
+  })
+)
 </script>
