@@ -1,5 +1,5 @@
 <template>
-  <el-aside width="200px" class="fixed top-[60px] h-full">
+  <el-aside width="200px">
     <el-menu
       class="shadow bg-white/75 dark:bg-black/75 backdrop-blur-sm"
       :class="sidebar.collapse"

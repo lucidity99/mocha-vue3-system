@@ -5,6 +5,7 @@
       <div class="flex justify-around">
         <div>
           <div>限制输入数字</div>
+          {{ inputValue1 }}
           <el-input v-model="inputValue1" v-inputNumber class="w-48" />
         </div>
         <div>

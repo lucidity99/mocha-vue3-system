@@ -14,6 +14,16 @@ const routes: RouteRecordRaw[] = [
     redirect: '/comp/table',
     children: [
       {
+        path: 'infinite',
+        name: 'infinite',
+        meta: {
+          title: 'infinite',
+          icon: 'ep-list'
+        },
+        component: () =>
+          import(/* webpackChunkName: "upload" */ '~/views/comp/infiniteList/index.vue')
+      },
+      {
         path: 'table',
         name: 'table',
         meta: {

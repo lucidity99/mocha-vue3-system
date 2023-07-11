@@ -5,7 +5,10 @@ export const useThemeStore = defineStore(
   'theme',
   () => {
     let css = ref({})
+    // UI主题
     let scheme = ref('')
+    // 布局方案
+    let layoutScheme = ref('default')
 
     // 设置配色主题
     function setScheme(str: string) {
@@ -24,7 +27,12 @@ export const useThemeStore = defineStore(
       })
     }
 
-    return { scheme, css, setCSS, setScheme, setCustomized }
+    // 设置布局方案
+    function setLayoutScheme(layout: string) {
+      layoutScheme.value = layout
+    }
+
+    return { scheme, css, layoutScheme, setCSS, setScheme, setCustomized, setLayoutScheme }
   },
   {
     persist: true

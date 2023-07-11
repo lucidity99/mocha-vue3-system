@@ -1,42 +1,44 @@
 <template>
-  <i-ep-search @click="visible = true" class="text-sm text-gray-600 cursor-pointer" />
-  <el-dialog
-    v-model="visible"
-    append-to-body
-    :show-close="false"
-    class="bg-gray-100 site-search"
-    width="600px"
-    @open="onOpen"
-    @close="onClose"
-  >
-    <template #header="{ close, titleId, titleClass }">
-      <el-input
-        placeholder="搜索全站"
-        size="large"
-        v-model="keyword"
-        @input="search"
-        ref="inputRef"
-      />
-    </template>
+  <div>
+    <i-ep-search @click="visible = true" class="text-sm text-gray-600 cursor-pointer" />
+    <el-dialog
+      v-model="visible"
+      append-to-body
+      :show-close="false"
+      class="bg-gray-100 site-search"
+      width="600px"
+      @open="onOpen"
+      @close="onClose"
+    >
+      <template #header="{ close, titleId, titleClass }">
+        <el-input
+          placeholder="搜索全站"
+          size="large"
+          v-model="keyword"
+          @input="search"
+          ref="inputRef"
+        />
+      </template>
 
-    <div>
-      <ul>
-        <li
-          v-for="(item, index) in list"
-          class="flex items-center p-3 mx-4 mb-1 transition-all bg-white rounded shadow cursor-pointer group hover:bg-indigo-400 hover:text-white"
-          @click="goto(item.fullPath)"
-        >
-          <div>
-            <div>{{ item?.meta?.title }} {{ item.name }}</div>
-            <div class="text-sm text-gray-400 transition-all group-hover:text-white">
-              {{ item.fullPath }}
+      <div>
+        <ul>
+          <li
+            v-for="(item, index) in list"
+            class="flex items-center p-3 mx-4 mb-1 transition-all bg-white rounded shadow cursor-pointer group hover:bg-indigo-400 hover:text-white"
+            @click="goto(item.fullPath)"
+          >
+            <div>
+              <div>{{ item?.meta?.title }} {{ item.name }}</div>
+              <div class="text-sm text-gray-400 transition-all group-hover:text-white">
+                {{ item.fullPath }}
+              </div>
             </div>
-          </div>
-          <i-ep-position class="ml-auto text-white text-large" />
-        </li>
-      </ul>
-    </div>
-  </el-dialog>
+            <i-ep-position class="ml-auto text-white text-large" />
+          </li>
+        </ul>
+      </div>
+    </el-dialog>
+  </div>
 </template>
 
 <script setup lang="ts">

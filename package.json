@@ -52,7 +52,7 @@
     "autoprefixer": "^10.4.14",
     "iconify-icon": "^1.0.7",
     "postcss": "^8.4.23",
-    "sass": "^1.57.1",
+    "sass": "^1.63.6",
     "tailwindcss": "^3.3.1",
     "typescript": "^4.6.4",
     "unplugin-auto-import": "^0.11.2",

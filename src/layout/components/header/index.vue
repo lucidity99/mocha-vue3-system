@@ -1,5 +1,5 @@
 <template>
-  <div class="v-header backdrop-blur-sm bg-white/75 dark:bg-black/75">
+  <div class="header backdrop-blur-sm bg-white/75 dark:bg-black/75">
     <div class="mx-4 text-lg logo">mocha Vue3 Admin</div>
     <!-- 折叠按钮 -->
     <div class="inline-flex items-center h-full text-xl" @click="collapseChage">
@@ -67,10 +67,10 @@ import { useDark, useToggle } from '@vueuse/core'
 import { Sunny, Moon } from '@element-plus/icons-vue'
 import imgurl from '~/assets/images/img.jpg'
 import { useUserStore } from '~/store/user'
-import SiteSearch from './SiteSearch.vue'
-import Message from './Message.vue'
-import Language from './Language.vue'
-import ThemeSetting from './ThemeSetting.vue'
+import SiteSearch from '../SiteSearch.vue'
+import Message from '../Message.vue'
+import Language from '../Language.vue'
+import ThemeSetting from '../ThemeSetting.vue'
 
 const isDark = useDark()
 let darkMode = ref(false)

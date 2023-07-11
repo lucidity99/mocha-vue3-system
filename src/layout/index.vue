@@ -1,8 +1,5 @@
 <template>
-  <v-header :class="{ 'header-collapse': sidebar.collapse }" />
-  <v-tags :class="{ 'tag-collapse': sidebar.collapse }"></v-tags>
-  <v-sidebar class="siderbar" />
-  <div class="main-content" :class="{ 'content-collapse': sidebar.collapse }">
+  <Layout :key="key">
     <router-view v-slot="{ Component }">
       <transition name="move" mode="out-in">
         <keep-alive :include="tags.nameList">
@@ -10,15 +7,22 @@
         </keep-alive>
       </transition>
     </router-view>
-  </div>
+  </Layout>
 </template>
 <script setup lang="ts">
-import { useSidebarStore } from '~/store/sidebar'
+import { getCurrentInstance, h, render, ref } from 'vue'
 import { useTagsStore } from '~/store/tags'
-import vHeader from './header/index.vue'
-import vSidebar from './sidebar/index.vue'
-import vTags from './tags/index.vue'
+import { useThemeStore } from '~/store/theme'
+import DefaultLayout from './default/index.vue'
+import VerticalLayout from './vertical/index.vue'
 
-const sidebar = useSidebarStore()
 const tags = useTagsStore()
+const useTheme = useThemeStore()
+let key = ref(useTheme.layoutScheme)
+let Layout = useTheme.layoutScheme === 'default' ? DefaultLayout : VerticalLayout
+
+useTheme.$subscribe((mutation, state) => {
+  Layout = state.layoutScheme === 'default' ? DefaultLayout : VerticalLayout
+  key.value = state.layoutScheme
+})
 </script>

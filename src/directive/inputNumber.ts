@@ -14,7 +14,7 @@ export default {
     if (decimal > 0) regDecimal = new RegExp(`^\\d*(.?\\d{0,${decimal}})`, 'g')
     else regDecimal = new RegExp(`^\\d*`, 'g')
 
-    el.inputListener = () => {
+    el.inputListener = (e) => {
       let val = elInput.value
 
       elInput.value =
@@ -23,6 +23,7 @@ export default {
           .replace(/^0+(\d)/, '$1')
           .replace(/^\./, '0.')
           .match(regDecimal)[0] || ''
+      if (val !== elInput.value) elInput.dispatchEvent(new Event('input'))
     }
     elInput.addEventListener('input', el.inputListener)
   },
