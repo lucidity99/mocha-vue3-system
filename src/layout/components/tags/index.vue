@@ -34,7 +34,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, nextTick } from 'vue'
+import { ref, nextTick, watch } from 'vue'
 import { ClickOutside as vClickOutside } from 'element-plus'
 import { useTagsStore } from '~/store/tags'
 import { useSidebarStore } from '~/store/sidebar'
@@ -115,9 +115,15 @@ const setTags = (route: any) => {
 }
 setTags(route)
 
-onBeforeRouteUpdate((to) => {
-  setTags(to)
+watch(route, (newVal) => {
+  console.log(route)
+  setTags(route)
 })
+
+// onBeforeRouteUpdate((to) => {
+//   console.log(to, 111)
+//   setTags(to)
+// })
 
 // 关闭全部标签
 const closeAll = async () => {
