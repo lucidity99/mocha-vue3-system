@@ -4,13 +4,6 @@
   <v-sidebar class="siderbar" />
   <div class="main-content" :class="{ 'content-collapse': sidebar.collapse }">
     <slot></slot>
-    <router-view v-slot="{ Component }">
-      <transition name="move" mode="out-in">
-        <keep-alive :include="tags.nameList">
-          <component :is="Component"></component>
-        </keep-alive>
-      </transition>
-    </router-view>
   </div>
 </template>
 <script setup lang="ts">

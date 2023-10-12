@@ -20,6 +20,14 @@ const routes: RouteRecordRaw[] = [
           title: 'eChart'
         },
         component: () => import('~/views/chart/EChart.vue')
+      },
+      {
+        path: 'map',
+        name: 'map',
+        meta: {
+          title: 'map'
+        },
+        component: () => import('~/views/chart/echartMap.vue')
       }
     ]
   }

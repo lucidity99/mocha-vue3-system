@@ -21,13 +21,32 @@ const routes: RouteRecordRaw[] = [
         component: () => import(/* webpackChunkName: "feat" */ '~/views/feat/download.vue')
       },
       {
-        path: 'previewPDF',
-        name: 'previewPDF',
+        path: 'media',
+        name: 'media',
         meta: {
-          title: 'previewPDF'
+          title: 'media'
         },
-        component: () => import(/* webpackChunkName: "feat" */ '~/views/feat/PreviewPDF.vue')
+        redirect: 'previewPDF',
+        children: [
+          {
+            path: 'previewPDF',
+            name: 'previewPDF',
+            meta: {
+              title: 'previewPDF'
+            },
+            component: () => import(/* webpackChunkName: "feat" */ '~/views/feat/PreviewPDF.vue')
+          },
+          {
+            path: 'videojs',
+            name: 'videojs',
+            meta: {
+              title: 'videojs'
+            },
+            component: () => import(/* webpackChunkName: "feat" */ '~/views/feat/Videojs.vue')
+          }
+        ]
       },
+
       {
         path: 'directives',
         name: 'directives',

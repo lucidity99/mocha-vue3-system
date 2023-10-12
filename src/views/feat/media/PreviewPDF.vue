@@ -77,7 +77,9 @@ function handlePasswordRequest(callback: any, retry) {
 }
 
 function changePDF(source: string) {
-  pdfSource.value = source
+  pdfSource.value =
+    'http://118.89.81.22:9527/L16%20%E5%BF%83%E5%8A%A8-%E7%BC%96%E9%85%8D%E8%B0%B1.pdf'
+  // pdfSource.value = source
   page.value = 1
 }
 </script>
