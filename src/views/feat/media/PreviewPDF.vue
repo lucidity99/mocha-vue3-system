@@ -1,3 +1,13 @@
+<!--
+ * @Author: lucidity99 lucidity929@163.com
+ * @Date: 2023-05-19 09:39:08
+ * @LastEditors: lucidity99 lucidity929@163.com
+ * @LastEditTime: 2023-10-26 14:23:59
+ * @FilePath: /mocha-vue3-system/src/views/feat/media/PreviewPDF.vue
+ * @Description:
+ *
+ * 湖南灵之心, All Rights Reserved.
+-->
 <template>
   <div class="m-4 shadow">
     <div class="flex">
@@ -44,7 +54,7 @@ import VuePdfEmbed from 'vue-pdf-embed'
 const pdfRef = ref()
 const wpRef = ref()
 
-let pdfSource = ref('/L16 心动-编配谱.pdf')
+let pdfSource = ref('/演示文稿1.pdf')
 let isLoading = ref(true)
 let page = ref(1)
 let scale = ref(1)

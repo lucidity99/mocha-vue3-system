@@ -1,9 +1,19 @@
+<!--
+ * @Author: lucidity99 lucidity929@163.com
+ * @Date: 2023-04-23 13:20:11
+ * @LastEditors: lucidity99 lucidity929@163.com
+ * @LastEditTime: 2024-01-01 21:16:50
+ * @FilePath: /mocha-vue3-system/src/views/comp/form/BasicForm.vue
+ * @Description:
+ *
+ *
+-->
 <template>
   <div class="container">
     <el-card>
       <el-form ref="formRef" :rules="rules" :model="form" label-width="80px">
-        <el-form-item label="表单名称" prop="name">
-          <el-input v-model="form.name"></el-input>
+        <el-form-item label="选择客户" prop="name">
+          <UserSelector v-model="form.name" />
         </el-form-item>
         <el-form-item label="选择器" prop="region">
           <el-select v-model="form.region" placeholder="请选择">
@@ -67,6 +77,7 @@
 import { reactive, ref } from 'vue'
 import { ElMessage } from 'element-plus'
 import type { FormInstance, FormRules } from 'element-plus'
+import UserSelector from '~/components/UserSelector.vue'
 
 const options = [
   {

@@ -1,3 +1,13 @@
+/*
+ * @Author: lucidity99 lucidity929@163.com
+ * @Date: 2023-06-05 22:42:28
+ * @LastEditors: lucidity99 lucidity929@163.com
+ * @LastEditTime: 2023-10-26 14:05:13
+ * @FilePath: /mocha-vue3-system/src/router/modules/feat.ts
+ * @Description:
+ *
+ * 湖南灵之心, All Rights Reserved.
+ */
 import { RouteRecordRaw } from 'vue-router'
 import Layout from '~/layout/index.vue'
 
@@ -34,7 +44,8 @@ const routes: RouteRecordRaw[] = [
             meta: {
               title: 'previewPDF'
             },
-            component: () => import(/* webpackChunkName: "feat" */ '~/views/feat/PreviewPDF.vue')
+            component: () =>
+              import(/* webpackChunkName: "feat" */ '~/views/feat/media/PreviewPDF.vue')
           },
           {
             path: 'videojs',
@@ -42,7 +53,7 @@ const routes: RouteRecordRaw[] = [
             meta: {
               title: 'videojs'
             },
-            component: () => import(/* webpackChunkName: "feat" */ '~/views/feat/Videojs.vue')
+            component: () => import(/* webpackChunkName: "feat" */ '~/views/feat/media/Videojs.vue')
           }
         ]
       },

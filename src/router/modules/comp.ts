@@ -1,3 +1,13 @@
+/*
+ * @Author: lucidity99 lucidity929@163.com
+ * @Date: 2023-04-23 13:20:11
+ * @LastEditors: lucidity99 lucidity929@163.com
+ * @LastEditTime: 2023-11-09 13:28:43
+ * @FilePath: /mocha-vue3-system/src/router/modules/comp.ts
+ * @Description:
+ *
+
+ */
 import { RouteRecordRaw } from 'vue-router'
 import Layout from '~/layout/index.vue'
 
@@ -71,6 +81,14 @@ const routes: RouteRecordRaw[] = [
               title: 'basicForm'
             },
             component: () => import('~/views/comp/form/BasicForm.vue')
+          },
+          {
+            path: 'selectorWithPage',
+            name: 'selectorWithPage',
+            meta: {
+              title: 'selectorWithPage'
+            },
+            component: () => import('~/views/comp/form/SelectorWithPage.vue')
           }
         ]
       },
