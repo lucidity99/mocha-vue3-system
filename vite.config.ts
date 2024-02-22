@@ -1,3 +1,13 @@
+/*
+ * @Author: lucidity99 lucidity929@163.com
+ * @Date: 2023-06-05 22:42:28
+ * @LastEditors: lucidity99 lucidity929@163.com
+ * @LastEditTime: 2024-01-27 14:42:34
+ * @FilePath: /mocha-vue3-system/vite.config.ts
+ * @Description:
+ *
+ *
+ */
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import VueSetupExtend from 'vite-plugin-vue-setup-extend'

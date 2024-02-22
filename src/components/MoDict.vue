@@ -1,3 +1,13 @@
+<!--
+ * @Author: lucidity99 lucidity929@163.com
+ * @Date: 2023-06-02 11:00:11
+ * @LastEditors: lucidity99 lucidity929@163.com
+ * @LastEditTime: 2024-01-27 23:31:42
+ * @FilePath: /mocha-vue3-system/src/components/MoDict.vue
+ * @Description:
+ *
+ *
+-->
 <template>
   <el-tag :type="tagType" :class="tagClass" :effect="tagEffect">{{ label }}</el-tag>
 </template>
@@ -13,7 +23,7 @@ interface DictItem {
 const props = withDefaults(
   defineProps<{
     value: string
-    dicts: []
+    dicts: DictItem[]
   }>(),
   {
     value: '',

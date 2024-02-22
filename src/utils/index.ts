@@ -1,8 +1,18 @@
+/*
+ * @Author: lucidity99 lucidity929@163.com
+ * @Date: 2023-04-23 13:20:11
+ * @LastEditors: lucidity99 lucidity929@163.com
+ * @LastEditTime: 2024-01-27 22:56:39
+ * @FilePath: /mocha-vue3-system/src/utils/index.ts
+ * @Description:
+ *
+ *
+ */
 /**
  * @param {string} url
  * @returns {Object}
  */
-export function param2Obj(url) {
+export function param2Obj(url: string) {
   const search = decodeURIComponent(url.split('?')[1]).replace(/\+/g, ' ')
   if (!search) {
     return {}
@@ -20,7 +30,7 @@ export function param2Obj(url) {
   return obj
 }
 
-export function deepClone(target) {
+export function deepClone(target: object): any {
   // 定义一个变量
   let result
   // 如果当前需要深拷贝的是一个对象的话

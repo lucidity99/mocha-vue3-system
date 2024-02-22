@@ -1,4 +1,14 @@
-import { UserInfo } from '~/types/index'
+/*
+ * @Author: lucidity99 lucidity929@163.com
+ * @Date: 2023-05-31 15:27:55
+ * @LastEditors: lucidity99 lucidity929@163.com
+ * @LastEditTime: 2024-01-27 22:59:01
+ * @FilePath: /mocha-vue3-system/src/utils/permission.ts
+ * @Description:
+ *
+ *
+ */
+
 import { RouteComponent, RouteMeta, RouteRecordRaw } from 'vue-router'
 import systemApi from '~/api/system'
 import Layout from '~/layout/index.vue'
@@ -62,7 +72,7 @@ function filterFunc(routes: RouteRecordRaw[]) {
   return routes
 }
 
-export async function addAsyncRoutes(router) {
+export async function addAsyncRoutes(router: any) {
   const useUser = useUserStore()
   const permissionMode = import.meta.env.VITE_PERMISSION_MODE
 
@@ -73,7 +83,7 @@ export async function addAsyncRoutes(router) {
   }
   // 后端动态路由模式
   if (permissionMode === 'BACK') {
-    let routes = await getBackAsyncRoutes()
+    let routes: any = await getBackAsyncRoutes()
     filteredRoutes = formatAsyncRoutes(routes)
   }
   filteredRoutes.forEach((val) => router.addRoute(val))
