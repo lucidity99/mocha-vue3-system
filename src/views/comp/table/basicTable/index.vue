@@ -56,8 +56,17 @@
             <MoDict :value="scope.row.type" :dicts="dicts.clientType" />
           </template>
         </el-table-column>
-        <el-table-column prop="mobile" label="手机" min-width="200" />
+        <el-table-column prop="mobile" label="手机" min-width="200" #default="{ row }">
+          <EditableInput
+            type="string"
+            v-model="row.mobile"
+            param-name="mobile"
+            :row-data="row"
+            :update-api="clientApi.updateClient"
+          />
+        </el-table-column>
         <el-table-column prop="mail" label="邮箱" min-width="200" show-overflow-tooltip />
+
         <el-table-column label="状态">
           <template #default="scope">
             <MoDict :value="scope.row.status" :dicts="dicts.status" />
@@ -93,6 +102,7 @@ import { Search } from '@element-plus/icons-vue'
 import { useTable } from '~/hooks/useTable'
 import { useDict } from '~/hooks/useDict'
 import clientApi from '~/api/client'
+import EditableInput from '~/components/EditableInput.vue'
 
 let moreVisible = ref(false)
 

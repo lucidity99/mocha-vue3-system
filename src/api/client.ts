@@ -19,6 +19,13 @@ export default {
     })
   },
 
+  updateClient(data: {}) {
+    return request({
+      url: '/client/update',
+      method: 'post',
+      data
+    })
+  },
   // 删除客户
   deleteClient(data: []) {
     return request({})
